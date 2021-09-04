@@ -33,6 +33,22 @@ namespace Full_GRASP_And_SOLID.Library
                 Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
             }
+            Console.WriteLine($"Costo total receta: {this.GetProductionCost()}");
         }
+
+        public double GetProductionCost()
+        {
+            double total = 0;
+            foreach (Step step in this.steps)
+            {
+                total += step.TotalStepCost();
+            }
+            return total;
+        }
+        /*Agregamos el GetProductionCost() que era el metodo que pedia la consigna.
+        Basicamente con el metodo TotalStepCost(), calcula el total de cada paso y lo suma al total de la receta.*/
+
+        /*Usamos el Patrón Expert, asignándole la responsabilidad a la clase Recipe que es donde terminan todos los objetos Step
+        para poder iterar y capturar la información necesaria para calcular el costo de producción.*/
     }
 }

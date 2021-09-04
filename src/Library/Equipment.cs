@@ -14,8 +14,11 @@ namespace Full_GRASP_And_SOLID.Library
             this.HourlyCost = hourlyCost;
         }
 
-        public string Description { get; set; }
+        public string Description { get; private set; }
 
-        public double HourlyCost { get; set; }
+        public double HourlyCost { get; private set; }
+
+        /*Decidimos poner private a los sets ya que son seteados en el constructor y dejar publico el get
+        ya que es lo que siempre pedimos desde las otras clases*/
     }
 }
